@@ -1,12 +1,13 @@
-import ms from 'ms';
-import lunchtime from './lunchtime.js';
-import millisecondsUntil from './millisecondsUntil.js';
+import Parent from './parent';
+import Child from './child';
 
-export default function howLongUntilLunch(hours, minutes) {
-	// lunch is at 12.30
-	if (hours === undefined) hours = 12;
-	if (minutes === undefined) minutes = 30;
+/**
+ * Expose Parent and Child modules on AcrossTabs Object
+ * @type {Object}
+ */
+const AcrossTabs = {
+  Parent: Parent,
+  Child: Child
+};
 
-	var millisecondsUntilLunchTime = millisecondsUntil(lunchtime(hours, minutes));
-	return ms(millisecondsUntilLunchTime, { long: true });
-}
+export default AcrossTabs;
