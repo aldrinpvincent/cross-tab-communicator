@@ -5,12 +5,13 @@
   "module": "dist/moe-cross-tabs.esm.js",
   "browser": "dist/moe-cross-tabs.umd.js",
   "dependencies": {
-    "ms": "^2.0.0"
+    "ms": "^2.1.3"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "rollup": "^1.29.0"
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "rollup": "^2.78.0",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "scripts": {
     "build": "rollup -c",

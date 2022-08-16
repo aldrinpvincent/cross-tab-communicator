@@ -41,6 +41,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import pkg from './package.json';
+import { terser } from 'rollup-plugin-terser'
 
 export default [
 	// browser-friendly UMD build
@@ -53,7 +54,19 @@ export default [
 		},
 		plugins: [
 			resolve(), // so Rollup can find `ms`
-			commonjs() // so Rollup can convert `ms` to an ES module
+			commonjs(), // so Rollup can convert `ms` to an ES module
+			terser({
+				ecma: 2020,
+				mangle: { toplevel: true },
+				compress: {
+					module: true,
+					toplevel: true,
+					unsafe_arrows: true,
+					drop_console: true,
+					drop_debugger: true
+				},
+				output: { quote_style: 1 }
+			})
 		]
 	},
 
